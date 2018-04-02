@@ -16,6 +16,16 @@
 (defn process-data-dropping-signals [state new-data]
   (first (process-data state new-data)))
 
+
+(deftest actualizar-Contadores-test
+      (testing "Probando pasaje de argumentos si son symbol, string."
+        (is (= 33
+               (actualizar_Contadores (let [email-count "email-count"] email-count) 0)))))
+
+(deftest test-inicializador-procesamiento
+    (testing "Probando porque falla map con funcion anonima y coll. No ejecuta.Pasa por alto"
+      (is (= 0
+             (initialize-processor rules)))))
 (deftest initial-state-test
   (testing "Query counter from initial state"
     (is (= 0
